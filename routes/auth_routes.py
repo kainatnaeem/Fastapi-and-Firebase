@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from models.auth_model import SignUpSchema, SignInSchema
+from schemas.auth_schema import SignUpSchema, SignInSchema
 from core.firebase import firebase_auth_admin, firebase_auth
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
