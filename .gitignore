@@ -1,0 +1,13 @@
+# env
+.env
+
+# firebase secret
+serviceAccountKey.json
+
+# python
+myenv/
+__pycache__/
+*.pyc
+
+# vscode
+.vscode/
