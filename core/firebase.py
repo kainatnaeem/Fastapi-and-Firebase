@@ -1,5 +1,5 @@
 import firebase_admin
-from firebase_admin import credentials, auth
+from firebase_admin import credentials, auth,firestore
 import pyrebase
 from dotenv import load_dotenv
 import os
@@ -8,7 +8,8 @@ load_dotenv()
 if not firebase_admin._apps:
     cred = credentials.Certificate("serviceAccountKey.json")
     firebase_admin.initialize_app(cred)
-
+# Firestore database object
+db = firestore.client()
 firebase_auth_admin = auth
 
 
@@ -24,3 +25,4 @@ firebaseConfig = {
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 firebase_auth = firebase.auth()
+firebase_db = firebase.database()
