@@ -2,9 +2,13 @@ from fastapi import APIRouter, HTTPException
 from schemas.auth_schema import SignUpSchema, SignInSchema
 from core.firebase import firebase_auth_admin, firebase_auth
 
+
+# firebase_auth_admin (Admin SDK) → Used by backend to manage users (create, delete, verify tokens) using serviceAccountKey.
+# firebase_auth (Pyrebase / Client SDK) → Used to authenticate users with email & password and get an ID token.
+# Flow → Admin SDK for signup & server control, Pyrebase for login authentication.
+
+
 router = APIRouter(prefix="/auth", tags=["Auth"])
-
-
 @router.post("/signup")
 async def signup(data: SignUpSchema):
     try:

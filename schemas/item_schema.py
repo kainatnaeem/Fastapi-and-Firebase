@@ -3,12 +3,13 @@ from pydantic import BaseModel
 class ItemCreate(BaseModel):
     name: str
     price: float
-
+    image_url: str
 
 class GetItem(BaseModel):
     id: str
     name: str
     price: float
+    image_url: str
 
 class GetItembyId(BaseModel):
     id: str
